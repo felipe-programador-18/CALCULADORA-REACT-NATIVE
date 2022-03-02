@@ -8,7 +8,7 @@ export default function App() {
     ['3', '2', '1'],
     [',', '0', '=']
   ]
-  const Col2Buttons = ['C','/','x','+','-']
+  const Col2Buttons = ['C','÷','x','+','-']
   return (
     <View style={styles.container}>
       <Text style={styles.display} > Display</Text>
