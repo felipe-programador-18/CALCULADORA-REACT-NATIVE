@@ -1,13 +1,37 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import React, { useState } from 'react';
+
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-export default function App() {
-   
+export default function App(){
    const [display, setDisplay]= useState('') 
-   const [result]= useState('')
+   const [result, setResult]= useState('')
+   
    const Handleop = (op) =>{
-      setDisplay(display+op)
+     if(op === 'C'){
+       setDisplay({
+         display:'',
+         result:''
+       })
+     } else if(op === '=' ){
+      setDisplay(display),
+      setResult(result)
+
+     } else{
+       const display=  display+op
+       let result = result
+        try{
+          let FixedOp = display.splint('x').join('*')
+          FixedOp = FixedOp.splint('÷').join('/')
+          result = new String(eval(FixedOp)).toString()
+        }catch(e){}  
+        
+      setDisplay(display)
+      setResult(result)
+     }
+
+    
+   
    }
 
   const Col1buttons = [
@@ -53,7 +77,7 @@ export default function App() {
     
     </View>
   );
-}
+  }
 
 const styles = StyleSheet.create({
   container: {
