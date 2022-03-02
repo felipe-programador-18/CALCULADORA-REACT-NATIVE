@@ -1,7 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 export default function App() {
+   
+   const [display, setDisplay]= useState('') 
+   const [result]= useState('')
+   const Handleop = (op) =>{
+      setDisplay(display+op)
+   }
+
   const Col1buttons = [
     ['7', '8', '9'],
     ['4','5','6'],
@@ -11,33 +19,34 @@ export default function App() {
   const Col2Buttons = ['C','÷','x','+','-']
   return (
     <View style={styles.container}>
-      <Text style={styles.display} > Display</Text>
-      <Text style={styles.result}>Result</Text>
+      
+      <Text style={styles.display} > {display} </Text>
+      <Text style={styles.result}> {result} </Text>
 
       <View style={styles.buttons}>
          <View style={styles.col1}>
           {Col1buttons.map( (line, ind) => <View key={ind} style={styles.line}>
             
-            { line.map(op => <View key={op} style={styles.btn}>
+            { line.map(op => <TouchableOpacity key={op} style={styles.btn} onPress= {()=> Handleop(op)} >
+              
               <Text style={styles.btnText} >
               {op} 
               </Text>
               
-              </View>)
+              </TouchableOpacity>)
             }
-
             </View>
             )}
 
          </View>
 
          <View style={styles.col2}>
-         { Col2Buttons.map(op => <View key={op} style={styles.btn}>
+         { Col2Buttons.map(op => <TouchableOpacity key={op} style={styles.btn} onPress= {()=> Handleop(op)} >
           <Text style={styles.btnText} >
           {op} 
           </Text>
           
-          </View>)
+          </TouchableOpacity>)
         }
          </View>
       </View>
