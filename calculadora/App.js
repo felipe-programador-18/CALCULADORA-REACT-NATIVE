@@ -1,80 +1,50 @@
+import axios from 'axios';
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
+
+
+const Url = 'https://randomuser.me/api/'
+const Mapa = [12,12,4324,543,123,543]
+const build = Mapa.map((Mapa) => 
+ <li>{Mapa *7}</li>
+)
+
+const interative = ['felipe', 'martins', 'machado', 'programer19']
+
+
 
 export default function App(){
-   const [display, setDisplay]= useState('') 
-   const [result, setResult]= useState('')
-   
-   const Handleop = (op) =>{
-     if(op === 'C'){
-       setDisplay({
-         display:'',
-         result:''
-       })
-     } else if(op === '=' ){
-      setDisplay(display),
-      setResult(result)
+  
+  
+  const [data, setdata] = useState(Url)
+  const [busca, setbusca] = useState('') 
+  const Pensa = busca.toLowerCase()
+ const think =  interative.filter((intera) => intera.toLowerCase().includes(Pensa))
 
-     } else{
-       const display=  display+op
-       let result = result
-        try{
-          let FixedOp = display.splint('x').join('*')
-          FixedOp = FixedOp.splint('÷').join('/')
-          result = new String(eval(FixedOp)).toString()
-        }catch(e){}  
-        
-      setDisplay(display)
-      setResult(result)
-     }
 
-    
-   
-   }
+   useEffect(() =>{
+     axios
+     .get(Url)
+     .then(res =>
+      setdata(res.data))
+   },[])
 
-  const Col1buttons = [
-    ['7', '8', '9'],
-    ['4','5','6'],
-    ['3', '2', '1'],
-    [',', '0', '=']
-  ]
-  const Col2Buttons = ['C','÷','x','+','-']
   return (
-    <View style={styles.container}>
-      
-      <Text style={styles.display} > {display} </Text>
-      <Text style={styles.result}> {result} </Text>
+    <View style= {styles.container}>
+      <Text> teste api</Text>
+      {JSON.stringify(data)}
 
-      <View style={styles.buttons}>
-         <View style={styles.col1}>
-          {Col1buttons.map( (line, ind) => <View key={ind} style={styles.line}>
-            
-            { line.map(op => <TouchableOpacity key={op} style={styles.btn} onPress= {()=> Handleop(op)} >
-              
-              <Text style={styles.btnText} >
-              {op} 
-              </Text>
-              
-              </TouchableOpacity>)
-            }
-            </View>
-            )}
+      <input type='text' value={busca} onChange={(ev) => setbusca(ev.target.value)} ></input>
 
-         </View>
+      <ul> {think.map((intera) => (
+          <li key={intera}> {intera} </li>
+      ))}
 
-         <View style={styles.col2}>
-         { Col2Buttons.map(op => <TouchableOpacity key={op} style={styles.btn} onPress= {()=> Handleop(op)} >
-          <Text style={styles.btnText} >
-          {op} 
-          </Text>
-          
-          </TouchableOpacity>)
-        }
-         </View>
-      </View>
-    
+      </ul>
+
+      <ul> {build} </ul>
     </View>
   );
   }
