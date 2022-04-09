@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-
+import Textindig from './Pensa'
 import { StyleSheet, Text, View} from 'react-native';
 
 
@@ -45,6 +45,8 @@ export default function App(){
       </ul>
 
       <ul> {build} </ul>
+
+      <Textindig text='could your repeat? please ?' />
     </View>
   );
   }
