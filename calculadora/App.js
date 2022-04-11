@@ -18,7 +18,7 @@ const Entire =  Nember.map((Nember) =>
 const Input = ({label,  onChange, ...props}) =>{
    const [value, setvalue] = useState('')
    const onValueChange = evt =>{
-     setvalue(eve.target.value)
+     setvalue(evt.target.value)
      if(onChange){
        onChange(evt)
      }
@@ -27,9 +27,9 @@ const Input = ({label,  onChange, ...props}) =>{
      <label>
        {label}
 
-       <input onChange={onValueChange} {...props} >
+       <input onChange={onValueChange} {...props} />
          number of caracteris is : {value.length} 
-       </input>
+    
      </label>
    )
 }
@@ -80,7 +80,6 @@ export default function App(){
       <ul> {think.map((intera) => (
           <li key={intera}> {intera} </li>
       ))}
-
       </ul>
       <ul> {build} </ul>
       
@@ -93,8 +92,13 @@ export default function App(){
       </ul>
 
       <ul> {Entire} </ul>
+      <pre>
+      Form: {JSON.stringify(form)}
+      </pre>
 
-
+      <Input label='Nome:' name='nome' onChange={onChange} />
+      <Input  label='Email:' name='email' onChange={onChange} />
+         
       <Textindig text='could your repeat? please ?' />
     </View>
   );
