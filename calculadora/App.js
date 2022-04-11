@@ -10,6 +10,10 @@ const Mapa = [12,12,4324,543,123,543]
 const build = Mapa.map((Mapa) => 
  <li>{Mapa *7}</li>
 )
+const Nember = [1,2,3,4,5,6,7,8,9,10]
+const Entire =  Nember.map((Nember) =>
+   <li> {Nember *20} </li>
+)
 
 
 const interative = ['felipe', 'martins', 'machado', 'programer19']
@@ -59,7 +63,7 @@ export default function App(){
 
       </ul>
 
-
+      <ul> {Entire} </ul>
 
 
       <Textindig text='could your repeat? please ?' />
