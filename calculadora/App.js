@@ -15,6 +15,25 @@ const Entire =  Nember.map((Nember) =>
    <li> {Nember *20} </li>
 )
 
+const Input = ({label,  onChange, ...props}) =>{
+   const [value, setvalue] = useState('')
+   const onValueChange = evt =>{
+     setvalue(eve.target.value)
+     if(onChange){
+       onChange(evt)
+     }
+   }
+   return (
+     <label>
+       {label}
+
+       <input onChange={onValueChange} {...props} >
+         number of caracteris is : {value.length} 
+       </input>
+     </label>
+   )
+}
+
 
 const interative = ['felipe', 'martins', 'machado', 'programer19']
 
@@ -26,7 +45,12 @@ export default function App(){
     nome:'',
     email:''
   })
-  
+  const onChange = evt=>{
+    setform({
+      ...form,
+       [evt.target.name]: evt.target.value
+    })
+  }
   
   
   const [met, setmeet] = useState('')
@@ -58,7 +82,6 @@ export default function App(){
       ))}
 
       </ul>
-
       <ul> {build} </ul>
       
       <input  type='text' value={met} onChange={(ev) => setmeet(ev.target.value)}  ></input>
