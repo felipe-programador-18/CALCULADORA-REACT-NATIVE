@@ -13,16 +13,20 @@ const build = Mapa.map((Mapa) =>
 
 const interative = ['felipe', 'martins', 'machado', 'programer19']
 
+const Meeting = ['Martins','PROGRAMMER', 'severina','beatriz']
 
 
 export default function App(){
-  
+  const [met, setmeet] = useState('')
   
   const [data, setdata] = useState(Url)
   const [busca, setbusca] = useState('') 
   const Pensa = busca.toLowerCase()
- const think =  interative.filter((intera) => intera.toLowerCase().includes(Pensa))
-
+  const think =  interative.filter((intera) => intera.toLowerCase().includes(Pensa))
+  
+  // here create cosnt to receive value simplist here
+  const receiveUnion = met.toLowerCase()
+  const Union = Meeting.filter((works) => works.toLowerCase().includes(receiveUnion))
 
    useEffect(() =>{
      axios
@@ -45,6 +49,17 @@ export default function App(){
       </ul>
 
       <ul> {build} </ul>
+      
+      <input  type='text' value={met} onChange={(ev) => setmeet(ev.target.value)}  ></input>
+
+      <ul> {Union.map((works)=> (
+        <li key={works} > {works}</li>
+      ) )}
+
+      </ul>
+
+
+
 
       <Textindig text='could your repeat? please ?' />
     </View>
