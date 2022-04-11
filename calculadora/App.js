@@ -22,8 +22,14 @@ const Meeting = ['Martins','PROGRAMMER', 'severina','beatriz']
 
 
 export default function App(){
-  const [met, setmeet] = useState('')
+  const [form, setform] = useState({
+    nome:'',
+    email:''
+  })
   
+  
+  
+  const [met, setmeet] = useState('')
   const [data, setdata] = useState(Url)
   const [busca, setbusca] = useState('') 
   const Pensa = busca.toLowerCase()
