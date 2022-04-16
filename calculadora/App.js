@@ -37,7 +37,7 @@ const Input = ({label,  onChange, ...props}) =>{
 
 const interative = ['felipe', 'martins', 'machado', 'programer19']
 const Meeting = ['Martins','PROGRAMMER', 'severina','beatriz']
-
+const Pesquisa = ['programamer', 'Mobile', 'front-end','backend']
 
 export default function App(){
   const [form, setform] = useState({
@@ -51,7 +51,7 @@ export default function App(){
     })
   }
   
-  
+  const [Pe , setpe ] = useState('')
   const [met, setmeet] = useState('')
   const [data, setdata] = useState(Url)
   const [busca, setbusca] = useState('') 
@@ -75,13 +75,17 @@ export default function App(){
       {JSON.stringify(data)}
 
       <input type='text' value={busca} onChange={(ev) => setbusca(ev.target.value)} ></input>
-
+             
       <ul> {think.map((intera) => (
           <li key={intera}> {intera} </li>
       ))}
       </ul>
       <ul> {build} </ul>
       
+      
+
+
+
       <input  type='text' value={met} onChange={(ev) => setmeet(ev.target.value)}  ></input>
 
       <ul> {Union.map((works)=> (
