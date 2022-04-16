@@ -86,8 +86,11 @@ export default function App(){
       </ul>
       <ul> {build} </ul>  
       
-      <input type='text' value={}  onChange={(ev) => setpe(ev.target.value)} ></input>
-
+      <input type='text' value={Pe}  onChange={(ev) => setpe(ev.target.value)} ></input>
+      <ul> {Diminue.filter((mao) => (
+        <li key={mao}> {mao} </li>
+      ))}
+      </ul>
 
 
       <input  type='text' value={met} onChange={(ev) => setmeet(ev.target.value)}  ></input>
