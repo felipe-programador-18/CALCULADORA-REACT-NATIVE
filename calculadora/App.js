@@ -87,7 +87,7 @@ export default function App(){
       <ul> {build} </ul>  
       
       <input type='text' value={Pe}  onChange={(ev) => setpe(ev.target.value)} ></input>
-      <ul> {Diminue.filter((mao) => (
+      <ul> {Diminue.map((mao) => (
         <li key={mao}> {mao} </li>
       ))}
       </ul>
