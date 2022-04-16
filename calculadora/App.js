@@ -55,6 +55,10 @@ export default function App(){
   const [met, setmeet] = useState('')
   const [data, setdata] = useState(Url)
   const [busca, setbusca] = useState('') 
+
+  const Aloof =  Pe.toLowerCase()
+  const Diminue = Pesquisa.filter((mao) => mao.toLowerCase().includes(Aloof))
+
   const Pensa = busca.toLowerCase()
   const think =  interative.filter((intera) => intera.toLowerCase().includes(Pensa))
   
@@ -80,9 +84,9 @@ export default function App(){
           <li key={intera}> {intera} </li>
       ))}
       </ul>
-      <ul> {build} </ul>
+      <ul> {build} </ul>  
       
-      
+      <input type='text' value={}  onChange={(ev) => setpe(ev.target.value)} ></input>
 
 
 
