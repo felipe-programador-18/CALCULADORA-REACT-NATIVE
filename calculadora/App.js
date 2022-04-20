@@ -61,6 +61,7 @@ export default function App(){
   const [met, setmeet] = useState('')
   const [data, setdata] = useState(Url)
   const [busca, setbusca] = useState('') 
+  const [num, setnum] = useState('')
 
   const Aloof =  Pe.toLowerCase()
   const Diminue = Pesquisa.filter((mao) => mao.toLowerCase().includes(Aloof))
@@ -68,6 +69,7 @@ export default function App(){
   const Pensa = busca.toLowerCase()
   const think =  interative.filter((intera) => intera.toLowerCase().includes(Pensa))
   
+
   // here create cosnt to receive value simplist here
   const receiveUnion = met.toLowerCase()
   const Union = Meeting.filter((works) => works.toLowerCase().includes(receiveUnion))
@@ -82,8 +84,11 @@ export default function App(){
   return (
     <View style= {styles.container}>
       
+     
+
       <ul> {Pure}</ul>
       
+
       <Text> teste api</Text>
       {JSON.stringify(data)}
 
