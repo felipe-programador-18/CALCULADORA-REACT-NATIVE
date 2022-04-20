@@ -39,6 +39,12 @@ const interative = ['felipe', 'martins', 'machado', 'programer19']
 const Meeting = ['Martins','PROGRAMMER', 'severina','beatriz']
 const Pesquisa = ['programamer', 'Mobile', 'front-end','backend']
 
+
+const PraticeRember = [1,2,3,5,5,567,2,4,6,2]
+const Pure = PraticeRember.map((PraticeRember) => {
+     return <li> {PraticeRember**2} </li>
+})
+
 export default function App(){
   const [form, setform] = useState({
     nome:'',
@@ -75,6 +81,9 @@ export default function App(){
 
   return (
     <View style= {styles.container}>
+      
+      <ul> {Pure}</ul>
+      
       <Text> teste api</Text>
       {JSON.stringify(data)}
 
