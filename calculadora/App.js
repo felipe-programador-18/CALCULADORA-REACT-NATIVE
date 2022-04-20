@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { StatusBar } from 'expo-status-bar';
-import React, { useEffect, useState } from 'react';
+import { StatusBar } from 'expo-status-bar'
+import React, { useEffect, useState } from 'react'
 import Textindig from './Pensa'
-import { StyleSheet, Text, View} from 'react-native';
+import Selection from './Selecion'
+import { StyleSheet, Text, View} from 'react-native'
 
 
 const Url = 'https://randomuser.me/api/'
@@ -61,7 +62,7 @@ export default function App(){
   const [met, setmeet] = useState('')
   const [data, setdata] = useState(Url)
   const [busca, setbusca] = useState('') 
-  const [num, setnum] = useState('')
+  const [sel, setselection] = useState('')
 
   const Aloof =  Pe.toLowerCase()
   const Diminue = Pesquisa.filter((mao) => mao.toLowerCase().includes(Aloof))
@@ -124,6 +125,14 @@ export default function App(){
       <Input  label='Email:' name='email' onChange={onChange} />
          
       <Textindig text='could your repeat? please ?' />
+       
+       <select onChange={(ev)=> setselection(ev.target.value)} >
+        <Selection seletores='adidas' />
+        <Selection seletores='nike' />
+        <Selection seletores='puma' />
+       </select>
+        you selection: {sel}
+
     </View>
   );
   }
